@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王笑语 · 2026年6月假期学习计划 v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F5F0;
+  --card: #FFFFFF;
+  --text: #1A1A2E;
+  --muted: #7A7A8C;
+  --geo: #FF6B6B; --geo-light: #FFE8E8; --geo-dark: #C0392B;
+  --chi: #FF9F43; --chi-light: #FFF3E0; --chi-dark: #B7730A;
+  --eng: #4ECDC4; --eng-light: #E0FAF8; --eng-dark: #1A7A75;
+  --sci: #6BCB77; --sci-light: #E6F7E8; --sci-dark: #2E7D32;
+  --hist: #A78BFA; --hist-light: #EDE9FF; --hist-dark: #5B21B6;
+  --math: #45B7D1; --math-light: #E0F5FB; --math-dark: #0E6880;
+  --oly-math: #F59E0B; --oly-math-light: #FEF3C7; --oly-math-dark: #92400E;
+  --oly-phys: #3B82F6; --oly-phys-light: #DBEAFE; --oly-phys-dark: #1E3A8A;
+  --oly-chem: #10B981; --oly-chem-light: #D1FAE5; --oly-chem-dark: #065F46;
+  --rest: #E5E5E5; --rest-text: #888;
+  --border: rgba(0,0,0,0.07);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+.hero {
+  background: linear-gradient(135deg, #0F0C29 0%, #1A1A2E 50%, #0F3460 100%);
+  padding: 40px 32px 32px; position: relative; overflow: hidden;
+}
+.hero::before { content:''; position:absolute; top:-60px; right:-60px; width:240px; height:240px; background:rgba(245,158,11,0.1); border-radius:50%; }
+.hero::after { content:''; position:absolute; bottom:-40px; left:10%; width:160px; height:160px; background:rgba(255,107,107,0.1); border-radius:50%; }
+.hero-inner { position:relative; z-index:1; max-width:960px; margin:0 auto; }
+.hero-badge { display:inline-block; background:rgba(245,158,11,0.2); color:#F59E0B; font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:14px; }
+.hero h1 { font-family:'Nunito',sans-serif; font-size:32px; font-weight:900; color:#fff; line-height:1.2; margin-bottom:6px; }
+.hero h1 span { color:#F59E0B; }
+.hero-sub { color:rgba(255,255,255,0.55); font-size:14px; margin-bottom:28px; }
+.hero-stats { display:flex; gap:10px; flex-wrap:wrap; }
+.stat-pill { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:100px; padding:7px 16px; display:flex; align-items:center; gap:8px; }
+.stat-pill .dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.stat-pill span { font-size:12px; color:rgba(255,255,255,0.85); font-family:'Nunito',sans-serif; font-weight:700; }
+
+.nav-wrap { background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; }
+.nav { display:flex; gap:0; max-width:960px; margin:0 auto; padding:0 16px; overflow-x:auto; scrollbar-width:none; }
+.nav::-webkit-scrollbar { display:none; }
+.nav-btn { flex-shrink:0; padding:13px 16px; font-family:'Nunito',sans-serif; font-size:13px; font-weight:700; color:var(--muted); background:none; border:none; border-bottom:3px solid transparent; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
+.nav-btn:hover { color:var(--text); }
+.nav-btn.active { color:#0F3460; border-bottom-color:#F59E0B; }
+
+.main { max-width:960px; margin:0 auto; padding:24px 16px 60px; }
+.section { display:none; }
+.section.visible { display:block; }
+
+.legend { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+.leg { display:flex; align-items:center; gap:5px; background:#fff; border:1px solid var(--border); border-radius:100px; padding:4px 10px; }
+.leg-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+.leg span { font-size:11px; font-family:'Nunito',sans-serif; font-weight:700; color:var(--text); }
+.leg.oly { border-color:rgba(245,158,11,0.3); background:#FFFBEB; }
+
+.week-hd { margin-bottom:18px; }
+.week-hd h2 { font-family:'Nunito',sans-serif; font-size:20px; font-weight:900; color:var(--text); margin-bottom:3px; }
+.week-hd p { font-size:13px; color:var(--muted); }
+
+.day-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(128px,1fr)); gap:10px; }
+.day-card { background:#fff; border-radius:var(--radius); padding:12px 11px; border:1px solid var(--border); transition:transform 0.15s,box-shadow 0.15s; }
+.day-card:hover { transform:translateY(-2px); box-shadow:var(--shadow); }
+.day-label { font-family:'Nunito',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin-bottom:9px; padding-bottom:7px; border-bottom:1px solid var(--border); }
+.day-card.sunday .day-label { color:#FF6B6B; }
+.slot { font-size:11px; font-family:'Noto Sans SC',sans-serif; padding:4px 7px; border-radius:7px; margin-bottom:4px; line-height:1.4; font-weight:500; }
+.slot:last-child { margin-bottom:0; }
+.s-geo { background:var(--geo-light); color:var(--geo-dark); }
+.s-chi { background:var(--chi-light); color:var(--chi-dark); }
+.s-eng { background:var(--eng-light); color:var(--eng-dark); }
+.s-sci { background:var(--sci-light); color:var(--sci-dark); }
+.s-hist { background:var(--hist-light); color:var(--hist-dark); }
+.s-math { background:var(--math-light); color:var(--math-dark); }
+.s-oly-math { background:var(--oly-math-light); color:var(--oly-math-dark); }
+.s-oly-phys { background:var(--oly-phys-light); color:var(--oly-phys-dark); }
+.s-oly-chem { background:var(--oly-chem-light); color:var(--oly-chem-dark); }
+.s-rest { background:var(--rest); color:var(--rest-text); }
+.s-rev { background:#FFF0F5; color:#9B2335; }
+.slot-div { font-size:9px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin:5px 0 3px; padding-top:5px; border-top:1px dashed #E0E0E0; }
+
+.timetable { background:#fff; border-radius:var(--radius); border:1px solid var(--border); overflow:hidden; margin-bottom:20px; }
+.tt-row { display:grid; grid-template-columns:95px 1fr; border-bottom:1px solid var(--border); transition:background 0.15s; }
+.tt-row:last-child { border-bottom:none; }
+.tt-row:hover { background:#FAFAFA; }
+.tt-row.section-break { background:#FAFAFA; }
+.tt-time { padding:12px 12px; font-family:'Nunito',sans-serif; font-size:11px; font-weight:700; color:var(--muted); background:#FAFAFA; border-right:1px solid var(--border); display:flex; align-items:center; }
+.tt-act { padding:12px 15px; display:flex; align-items:center; gap:9px; font-size:12.5px; flex-wrap:wrap; }
+.tt-badge { flex-shrink:0; font-family:'Nunito',sans-serif; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; padding:3px 9px; border-radius:100px; }
+.tt-desc { color:var(--text); line-height:1.5; font-size:12.5px; }
+.tt-hours { font-family:'Nunito',sans-serif; font-size:10px; font-weight:700; color:#fff; background:#374151; padding:2px 7px; border-radius:100px; margin-left:auto; flex-shrink:0; }
+.section-label { font-family:'Nunito',sans-serif; font-size:10px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); padding:7px 15px; background:#F5F5F5; border-bottom:1px solid var(--border); }
+
+.subj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; }
+.subj-card { background:#fff; border-radius:var(--radius); padding:16px; border:1px solid var(--border); transition:transform 0.15s,box-shadow 0.15s; }
+.subj-card:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+.subj-card.oly-card { border-left:3px solid var(--oly-math); }
+.subj-card.oly-phys-card { border-left:3px solid var(--oly-phys); }
+.subj-card.oly-chem-card { border-left:3px solid var(--oly-chem); }
+.subj-top { display:flex; align-items:center; gap:11px; margin-bottom:12px; }
+.subj-icon { width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.subj-name { font-family:'Nunito',sans-serif; font-size:14px; font-weight:800; color:var(--text); margin-bottom:2px; }
+.subj-score-line { display:flex; align-items:center; gap:5px; }
+.score-now { font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; }
+.score-arr { font-size:11px; color:var(--muted); }
+.score-target { font-family:'Nunito',sans-serif; font-size:12px; font-weight:700; color:#2E7D32; }
+.priority-badge { display:inline-block; font-family:'Nunito',sans-serif; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; padding:3px 10px; border-radius:100px; margin-bottom:10px; }
+.pri-high { background:#FFE8E8; color:#C0392B; }
+.pri-med { background:#FFF3E0; color:#B7730A; }
+.pri-low { background:#E6F7E8; color:#2E7D32; }
+.pri-star { background:#E0F5FB; color:#0E6880; }
+.pri-oly { background:#FEF3C7; color:#92400E; }
+.tip-list { list-style:none; }
+.tip-list li { font-size:12px; color:#444; padding:4px 0 4px 15px; position:relative; line-height:1.45; border-bottom:1px solid #F5F5F5; }
+.tip-list li:last-child { border-bottom:none; }
+.tip-list li::before { content:'→'; position:absolute; left:0; font-size:10px; color:var(--muted); top:5px; }
+
+.overview-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; margin-bottom:20px; }
+.ov-card { background:#fff; border-radius:var(--radius); padding:15px 17px; border:1px solid var(--border); }
+.ov-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:9px; }
+.ov-subj { font-family:'Nunito',sans-serif; font-size:13px; font-weight:800; color:var(--text); }
+.ov-num { font-family:'Nunito',sans-serif; font-size:22px; font-weight:900; }
+.ov-bar-track { height:7px; background:#F0F0F0; border-radius:100px; overflow:hidden; margin-bottom:7px; }
+.ov-bar-fill { height:100%; border-radius:100px; }
+.ov-meta { display:flex; justify-content:space-between; align-items:center; }
+.ov-status { font-size:11px; font-family:'Nunito',sans-serif; font-weight:700; padding:3px 9px; border-radius:100px; }
+.ov-gap { font-size:11px; color:var(--muted); font-family:'Nunito',sans-serif; font-weight:600; }
+
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px; }
+@media(max-width:600px){ .two-col { grid-template-columns:1fr; } }
+.info-card { background:#fff; border-radius:var(--radius); padding:16px; border:1px solid var(--border); }
+.info-card h3 { font-family:'Nunito',sans-serif; font-size:14px; font-weight:800; margin-bottom:12px; }
+.info-row { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid #F5F5F5; font-size:12.5px; }
+.info-row:last-child { border-bottom:none; }
+.info-label { color:var(--muted); }
+.info-val { font-family:'Nunito',sans-serif; font-weight:700; font-size:12px; }
+
+.oly-section-title { font-family:'Nunito',sans-serif; font-size:13px; font-weight:900; color:var(--oly-math-dark); background:var(--oly-math-light); padding:8px 14px; border-radius:8px; margin:20px 0 12px; display:flex; align-items:center; gap:6px; }
+
+.progress-section { margin-bottom:20px; }
+.pb-row { display:grid; grid-template-columns:140px 1fr 65px; align-items:center; gap:10px; margin-bottom:9px; }
+.pb-label { font-size:12.5px; color:var(--text); }
+.pb-track { height:8px; background:#F0F0F0; border-radius:100px; overflow:hidden; }
+.pb-fill { height:100%; border-radius:100px; }
+.pb-score { font-size:11px; color:var(--muted); text-align:right; font-family:'Nunito',sans-serif; font-weight:600; }
+
+.checklist-week { margin-bottom:24px; }
+.cl-week-title { font-family:'Nunito',sans-serif; font-size:14px; font-weight:900; color:var(--text); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.cl-week-num { background:#0F3460; color:#fff; font-size:11px; font-weight:800; padding:3px 10px; border-radius:100px; }
+.cl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:7px; }
+.cl-item { display:flex; align-items:flex-start; gap:9px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:9px 11px; cursor:pointer; transition:all 0.15s; user-select:none; }
+.cl-item:hover { border-color:#F59E0B; }
+.cl-item.done { background:#F0FFF4; border-color:#6BCB77; }
+.cl-item.done .cl-text { text-decoration:line-through; color:var(--muted); }
+.cl-check { width:17px; height:17px; border-radius:5px; border:2px solid #D0D0D0; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:1px; transition:all 0.15s; font-size:10px; color:#fff; }
+.cl-item.done .cl-check { background:#6BCB77; border-color:#6BCB77; }
+.cl-subj-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; margin-top:4px; }
+.cl-text { font-size:12px; color:var(--text); line-height:1.4; }
+
+@media(max-width:600px){
+  .hero { padding:24px 16px 20px; }
+  .hero h1 { font-size:24px; }
+  .main { padding:16px 12px 50px; }
+  .day-grid { grid-template-columns:repeat(2,1fr); }
+  .tt-row { grid-template-columns:75px 1fr; }
+  .pb-row { grid-template-columns:110px 1fr 50px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">HCI Sec 2 · 2026年6月假期 · 强化版</div>
+    <h1>王笑语 · <span>假期冲刺计划</span></h1>
+    <p class="hero-sub">每天8小时 · 5h学校科目 + 3h竞赛 · EOY全A1 + SMO Open + 奥物电磁 + 奥化A Level</p>
+    <div class="hero-stats">
+      <div class="stat-pill"><div class="dot" style="background:#FF6B6B"></div><span>Geography 🔴 最高优先</span></div>
+      <div class="stat-pill"><div class="dot" style="background:#F59E0B"></div><span>奥数 SMO Junior→Open</span></div>
+      <div class="stat-pill"><div class="dot" style="background:#3B82F6"></div><span>奥物 电学&磁学</span></div>
+      <div class="stat-pill"><div class="dot" style="background:#10B981"></div><span>奥化 A Level全覆盖</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <div class="nav">
+    <button class="nav-btn active" onclick="showTab('overview')">总览</button>
+    <button class="nav-btn" onclick="showTab('week1')">第一周</button>
+    <button class="nav-btn" onclick="showTab('week2')">第二周</button>
+    <button class="nav-btn" onclick="showTab('week3')">第三周</button>
+    <button class="nav-btn" onclick="showTab('week4')">第四周</button>
+    <button class="nav-btn" onclick="showTab('daily')">每日时间表</button>
+    <button class="nav-btn" onclick="showTab('tips')">各科攻略</button>
+    <button class="nav-btn" onclick="showTab('olympiad')">竞赛规划</button>
+    <button class="nav-btn" onclick="showTab('checklist')">打卡清单</button>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot" style="background:var(--geo)"></div><span>Geography</span></div>
+  <div class="leg"><div class="leg-dot" style="background:var(--chi)"></div><span>华文</span></div>
+  <div class="leg"><div class="leg-dot" style="background:var(--eng)"></div><span>English</span></div>
+  <div class="leg"><div class="leg-dot" style="background:var(--sci)"></div><span>Science</span></div>
+  <div class="leg"><div class="leg-dot" style="background:var(--hist)"></div><span>History</span></div>
+  <div class="leg oly"><div class="leg-dot" style="background:var(--oly-math)"></div><span>奥数</span></div>
+  <div class="leg oly"><div class="leg-dot" style="background:var(--oly-phys)"></div><span>奥物</span></div>
+  <div class="leg oly"><div class="leg-dot" style="background:var(--oly-chem)"></div><span>奥化</span></div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="overview" class="section visible">
+  <div class="two-col">
+    <div class="info-card">
+      <h3>⏱ 每日8小时分配</h3>
+      <div class="info-row"><span class="info-label">上午 Geography</span><span class="info-val s-geo" style="padding:2px 8px;border-radius:6px;">2h（最高优先）</span></div>
+      <div class="info-row"><span class="info-label">上午 华文 / English</span><span class="info-val s-chi" style="padding:2px 8px;border-radius:6px;">1.5h</span></div>
+      <div class="info-row"><span class="info-label">下午 History + Science</span><span class="info-val s-hist" style="padding:2px 8px;border-radius:6px;">1.5h</span></div>
+      <div class="info-row"><span class="info-label">小计学校科目</span><span class="info-val">≈ 5h</span></div>
+      <div class="info-row"><span class="info-label">晚上 竞赛（奥数/奥物/奥化轮）</span><span class="info-val s-oly-math" style="padding:2px 8px;border-radius:6px;">3h</span></div>
+      <div class="info-row"><span class="info-label">总计</span><span class="info-val" style="color:#0F3460;">8小时</span></div>
+    </div>
+    <div class="info-card">
+      <h3>🏆 竞赛轮换安排（每周）</h3>
+      <div class="info-row"><span class="info-label">周一/周四</span><span class="info-val s-oly-math" style="padding:2px 8px;border-radius:6px;">奥数 SMO Open</span></div>
+      <div class="info-row"><span class="info-label">周二/周五</span><span class="info-val s-oly-phys" style="padding:2px 8px;border-radius:6px;">奥物 电学&磁学</span></div>
+      <div class="info-row"><span class="info-label">周三/周六</span><span class="info-val s-oly-chem" style="padding:2px 8px;border-radius:6px;">奥化 A Level 进度</span></div>
+      <div class="info-row"><span class="info-label">周日</span><span class="info-val">完全休息</span></div>
+      <div class="info-row"><span class="info-label">奥化目标</span><span class="info-val" style="color:#065F46;">6月覆盖A Level全知识点</span></div>
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <div style="font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;margin-bottom:14px;">学校科目现状 vs A1目标（75分）</div>
+    <div class="pb-row"><span class="pb-label">Geography</span><div class="pb-track"><div class="pb-fill" style="width:55%;background:var(--geo)"></div></div><span class="pb-score">55 → 需+20</span></div>
+    <div class="pb-row"><span class="pb-label">Higher Chinese</span><div class="pb-track"><div class="pb-fill" style="width:69%;background:var(--chi)"></div></div><span class="pb-score">69 → 需+6</span></div>
+    <div class="pb-row"><span class="pb-label">English Lit</span><div class="pb-track"><div class="pb-fill" style="width:73%;background:var(--eng)"></div></div><span class="pb-score">73 → 需+2</span></div>
+    <div class="pb-row"><span class="pb-label">History</span><div class="pb-track"><div class="pb-fill" style="width:87%;background:var(--hist)"></div></div><span class="pb-score">87 → 保持</span></div>
+    <div class="pb-row"><span class="pb-label">Science</span><div class="pb-track"><div class="pb-fill" style="width:75%;background:var(--sci)"></div></div><span class="pb-score">75 → 保持</span></div>
+    <div class="pb-row"><span class="pb-label">Mathematics</span><div class="pb-track"><div class="pb-fill" style="width:100%;background:var(--math)"></div></div><span class="pb-score">100 ⭐ 满分</span></div>
+  </div>
+</div>
+
+<!-- WEEK 1 -->
+<div id="week1" class="section">
+  <div class="week-hd">
+    <h2>第一周（1–7日）· 建立节奏</h2>
+    <p>学校：Geography 知识框架 + History 基础复习 ｜ 竞赛：各科第一轮开课跟进</p>
+  </div>
+  <div class="day-grid">
+    <div class="day-card">
+      <div class="day-label">周一 Mon</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 Ch1–2概念整理 2h</div>
+      <div class="slot s-chi">华文 词汇+阅读 1.5h</div>
+      <div class="slot s-hist">历史 基础笔记 1h</div>
+      <div class="slot s-sci">科学 快速复习 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 SMO Open 入门 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周二 Tue</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 案例笔记（雨林）2h</div>
+      <div class="slot s-eng">英文 Reading+词汇 1.5h</div>
+      <div class="slot s-hist">历史 SBQ结构 1h</div>
+      <div class="slot s-sci">科学 练习题 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 电场基础 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周三 Wed</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 Past Year SBQ 2h</div>
+      <div class="slot s-chi">华文 作文练习 1.5h</div>
+      <div class="slot s-hist">历史 错题整理 1h</div>
+      <div class="slot s-eng">英文 Writing 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-chem">奥化 Physical Chem 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周四 Thu</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 错题改正 2h</div>
+      <div class="slot s-chi">华文 阅读理解 1.5h</div>
+      <div class="slot s-hist">历史 笔记复习 1h</div>
+      <div class="slot s-sci">科学 概念 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 数论基础 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周五 Fri</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 第二章节 2h</div>
+      <div class="slot s-eng">英文 Essay练习 1.5h</div>
+      <div class="slot s-hist">历史 Past Year 1h</div>
+      <div class="slot s-chi">华文 默写 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 电势&电容 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周六 Sat</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 专题综合练习 2h</div>
+      <div class="slot s-chi">华文 模拟卷 1.5h</div>
+      <div class="slot s-hist">历史 本周回顾 1h</div>
+      <div class="slot s-rev">全科错题汇总 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-chem">奥化 Inorganic Chem基础 3h</div>
+    </div>
+    <div class="day-card sunday">
+      <div class="day-label">周日 Sun ☀️</div>
+      <div class="slot s-rest">完全休息</div>
+      <div class="slot s-rest">家庭时间</div>
+      <div class="slot s-rest">运动/户外</div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 2 -->
+<div id="week2" class="section">
+  <div class="week-hd">
+    <h2>第二周（8–14日）· 深化攻坚</h2>
+    <p>学校：Geography题型攻克 + History SBQ训练 ｜ 竞赛：加深难度</p>
+  </div>
+  <div class="day-grid">
+    <div class="day-card">
+      <div class="day-label">周一 Mon</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 Essay结构训练 2h</div>
+      <div class="slot s-chi">华文 议论文 1.5h</div>
+      <div class="slot s-hist">历史 SBQ全套练习 1h</div>
+      <div class="slot s-sci">科学 练习 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 组合数学 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周二 Tue</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 Mock SBQ全套 2h</div>
+      <div class="slot s-eng">英文 Comprehension 1.5h</div>
+      <div class="slot s-hist">历史 批改分析 1h</div>
+      <div class="slot s-sci">科学 错题 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 电流&电路 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周三 Wed</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 批改+改错 2h</div>
+      <div class="slot s-chi">华文 词语运用 1.5h</div>
+      <div class="slot s-hist">历史 知识点深化 1h</div>
+      <div class="slot s-eng">英文 Writing 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-chem">奥化 Organic Chem基础 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周四 Thu</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 第三章节 2h</div>
+      <div class="slot s-chi">华文 听写练习 1.5h</div>
+      <div class="slot s-hist">历史 练习题 1h</div>
+      <div class="slot s-sci">科学 概念 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 代数进阶 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周五 Fri</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 Past Year Paper 2h</div>
+      <div class="slot s-eng">英文 Essay完整版 1.5h</div>
+      <div class="slot s-hist">历史 Past Year 1h</div>
+      <div class="slot s-chi">华文 默写 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 磁场入门 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周六 Sat</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 综合做题 2h</div>
+      <div class="slot s-chi">华文 模拟卷 1.5h</div>
+      <div class="slot s-hist">历史 本周总结 1h</div>
+      <div class="slot s-rev">全科错题本 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-chem">奥化 Organic深化 3h</div>
+    </div>
+    <div class="day-card sunday">
+      <div class="day-label">周日 Sun ☀️</div>
+      <div class="slot s-rest">完全休息</div>
+      <div class="slot s-rest">家庭时间</div>
+      <div class="slot s-rest">运动/户外</div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 3 -->
+<div id="week3" class="section">
+  <div class="week-hd">
+    <h2>第三周（15–21日）· 全面模拟</h2>
+    <p>学校：全套模拟考试 + 分析弱点 ｜ 竞赛：加大难度题型</p>
+  </div>
+  <div class="day-grid">
+    <div class="day-card">
+      <div class="day-label">周一 Mon</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 Full Mock（计时）2h</div>
+      <div class="slot s-chi">华文 Full Mock 1.5h</div>
+      <div class="slot s-hist">历史 Full Mock 1h</div>
+      <div class="slot s-sci">科学 Mock 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 几何进阶 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周二 Tue</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 改卷+深度分析 2h</div>
+      <div class="slot s-chi">华文 改卷分析 1.5h</div>
+      <div class="slot s-hist">历史 改卷+总结 1h</div>
+      <div class="slot s-sci">科学 错题 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 磁感应&安培力 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周三 Wed</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-eng">英文 Full Mock 2h</div>
+      <div class="slot s-geo">地理 弱点专攻 1.5h</div>
+      <div class="slot s-hist">历史 重点专项 1h</div>
+      <div class="slot s-eng">英文 改卷 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-chem">奥化 Physical Chem进阶 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周四 Thu</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 专项补强 2h</div>
+      <div class="slot s-chi">华文 专项补强 1.5h</div>
+      <div class="slot s-hist">历史 补强练习 1h</div>
+      <div class="slot s-sci">科学 综合 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 SMO真题练习 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周五 Fri</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 第二套Mock 2h</div>
+      <div class="slot s-eng">英文 写作冲刺 1.5h</div>
+      <div class="slot s-hist">历史 Past Year 1h</div>
+      <div class="slot s-chi">华文 词汇 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 电磁感应 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周六 Sat</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 综合整理 2h</div>
+      <div class="slot s-hist">历史 精华笔记 1.5h</div>
+      <div class="slot s-chi">华文 作文冲刺 1h</div>
+      <div class="slot s-rev">全科错题汇总 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-chem">奥化 Organic综合 3h</div>
+    </div>
+    <div class="day-card sunday">
+      <div class="day-label">周日 Sun ☀️</div>
+      <div class="slot s-rest">完全休息</div>
+      <div class="slot s-rest">恢复体力</div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 4 -->
+<div id="week4" class="section">
+  <div class="week-hd">
+    <h2>第四周（22–30日）· 冲刺收尾</h2>
+    <p>学校：查漏补缺 + 精华笔记 ｜ 竞赛：奥化收官 + 奥数奥物巩固</p>
+  </div>
+  <div class="day-grid">
+    <div class="day-card">
+      <div class="day-label">周一 Mon</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 弱点最终攻 2h</div>
+      <div class="slot s-chi">华文 作文最终版 1.5h</div>
+      <div class="slot s-hist">历史 重点巩固 1h</div>
+      <div class="slot s-sci">科学 综合 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 Open真题冲刺 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周二 Tue</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 精华笔记整理 2h</div>
+      <div class="slot s-eng">英文 写作技巧总结 1.5h</div>
+      <div class="slot s-hist">历史 笔记精华 1h</div>
+      <div class="slot s-chi">华文 默写 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 电磁综合练习 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周三 Wed</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 最终模拟 2h</div>
+      <div class="slot s-sci">科学 概念总复习 1.5h</div>
+      <div class="slot s-hist">历史 Past Year 1h</div>
+      <div class="slot s-chi">华文 综合 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-chem">奥化 A Level最终章节 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周四 Thu</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-geo">地理 改卷收尾 2h</div>
+      <div class="slot s-chi">华文 最终模拟 1.5h</div>
+      <div class="slot s-hist">历史 最终模拟 1h</div>
+      <div class="slot s-eng">英文 收尾 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-math">奥数 综合真题 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周五 Fri</div>
+      <div class="slot-div">学校 5h</div>
+      <div class="slot s-rev">全科快速回顾 2h</div>
+      <div class="slot s-geo">地理 关键点速记 1.5h</div>
+      <div class="slot s-hist">历史 关键点速记 1h</div>
+      <div class="slot s-chi">华文 收尾 0.5h</div>
+      <div class="slot-div">竞赛 3h</div>
+      <div class="slot s-oly-phys">奥物 电磁总结 3h</div>
+    </div>
+    <div class="day-card">
+      <div class="day-label">周六 Sat</div>
+      <div class="slot-div">学校 3h</div>
+      <div class="slot s-rev">全科笔记整理</div>
+      <div class="slot s-rest">开学准备</div>
+      <div class="slot-div">竞赛 2h</div>
+      <div class="slot s-oly-chem">奥化 全册知识点回顾</div>
+      <div class="slot s-rest">轻松收尾</div>
+    </div>
+    <div class="day-card sunday">
+      <div class="day-label">周日 Sun ☀️</div>
+      <div class="slot s-rest">完全休息</div>
+      <div class="slot s-rest">整理书包文具</div>
+      <div class="slot s-rest">迎接新学期</div>
+    </div>
+  </div>
+</div>
+
+<!-- DAILY -->
+<div id="daily" class="section">
+  <div class="week-hd">
+    <h2>每日标准时间表</h2>
+    <p>工作日 8小时 · 三大时段 · 不超过90分钟不休息</p>
+  </div>
+  <div class="timetable">
+    <div class="section-label">🌅 上午学习组（学校科目 — 约4h）</div>
+    <div class="tt-row">
+      <div class="tt-time">7:30–7:50</div>
+      <div class="tt-act"><span class="tt-badge" style="background:#E5E5E5;color:#555;">启动</span><span class="tt-desc">早餐 + 翻看昨天笔记，不超过20分钟</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">7:50–9:50</div>
+      <div class="tt-act"><span class="tt-badge" style="background:var(--geo-light);color:var(--geo-dark);">Geography</span><span class="tt-desc">每天2小时 — 精神最好时段留给最难科目</span><span class="tt-hours">2h</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">9:50–10:05</div>
+      <div class="tt-act"><span class="tt-badge" style="background:#E5E5E5;color:#555;">小休</span><span class="tt-desc">离开书桌，拉伸，喝水，不看手机</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">10:05–11:35</div>
+      <div class="tt-act"><span class="tt-badge" style="background:var(--chi-light);color:var(--chi-dark);">华文/英文</span><span class="tt-desc">按当天计划交替：华文（Mon/Wed/Thu）或 English（Tue/Fri/Sat）</span><span class="tt-hours">1.5h</span></div>
+    </div>
+    <div class="section-label">☀️ 下午学习组（学校科目 — 约2h）</div>
+    <div class="tt-row">
+      <div class="tt-time">11:35–13:15</div>
+      <div class="tt-act"><span class="tt-badge" style="background:#E5E5E5;color:#555;">午休</span><span class="tt-desc">午餐 + 小睡20–30分钟（非常重要，下午效率关键）</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">13:15–14:15</div>
+      <div class="tt-act"><span class="tt-badge" style="background:var(--hist-light);color:var(--hist-dark);">History</span><span class="tt-desc">每天1小时 — SBQ练习 / 笔记 / Past Year轮换</span><span class="tt-hours">1h</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">14:15–14:45</div>
+      <div class="tt-act"><span class="tt-badge" style="background:var(--sci-light);color:var(--sci-dark);">Science</span><span class="tt-desc">每天30分钟维持 — 练习题 / 概念复习 / 错题</span><span class="tt-hours">0.5h</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">14:45–15:00</div>
+      <div class="tt-act"><span class="tt-badge" style="background:#E5E5E5;color:#555;">小休</span><span class="tt-desc">零食 / 短暂走动，准备迎接竞赛时段</span></div>
+    </div>
+    <div class="section-label">🏆 晚间竞赛组（轮换 — 3h）</div>
+    <div class="tt-row">
+      <div class="tt-time">15:00–17:00</div>
+      <div class="tt-act"><span class="tt-badge" style="background:var(--oly-math-light);color:var(--oly-math-dark);">竞赛 A</span><span class="tt-desc">奥数（Mon/Thu）/ 奥物（Tue/Fri）/ 奥化（Wed/Sat）— 跟课 + 做题</span><span class="tt-hours">2h</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">17:00–17:15</div>
+      <div class="tt-act"><span class="tt-badge" style="background:#E5E5E5;color:#555;">小休</span><span class="tt-desc">短暂休息</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">17:15–18:15</div>
+      <div class="tt-act"><span class="tt-badge" style="background:var(--oly-math-light);color:var(--oly-math-dark);">竞赛 B</span><span class="tt-desc">同科目延续：复习当天课程 / 做例题 / 整理笔记</span><span class="tt-hours">1h</span></div>
+    </div>
+    <div class="section-label">🌙 收工</div>
+    <div class="tt-row">
+      <div class="tt-time">18:15–20:00</div>
+      <div class="tt-act"><span class="tt-badge" style="background:#E5E5E5;color:#555;">自由</span><span class="tt-desc">晚餐 · 运动 · 家庭时间 — 完全不想学习</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">20:00–20:30</div>
+      <div class="tt-act"><span class="tt-badge" style="background:var(--chi-light);color:var(--chi-dark);">选做</span><span class="tt-desc">华文词汇 / 奥化背诵（轻量，可跳过）</span></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-time">20:30 后</div>
+      <div class="tt-act"><span class="tt-badge" style="background:#E5E5E5;color:#555;">收工</span><span class="tt-desc">不碰书本 · 保证充足睡眠 — 高强度计划尤其需要</span></div>
+    </div>
+  </div>
+  <div style="background:var(--oly-math-light);border-radius:var(--radius);padding:14px 18px;border:1px solid rgba(245,158,11,0.2);">
+    <p style="font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--oly-math-dark);margin-bottom:4px;">⚡ 关于8小时的说明</p>
+    <p style="font-size:12.5px;color:#6B4C10;line-height:1.6;">真正有效的学习时间 = 学校5h + 竞赛3h = 8h，不含休息和吃饭时间。这是很高的强度，务必保证每天7–8小时睡眠，和每天至少30分钟运动，否则效率会快速下降。</p>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div id="tips" class="section">
+  <div class="week-hd"><h2>学校各科攻略</h2><p>针对现有分数的具体方法</p></div>
+  <div class="subj-grid">
+    <div class="subj-card">
+      <div class="subj-top">
+        <div class="subj-icon" style="background:var(--geo-light);">🌍</div>
+        <div><div class="subj-name">Geography</div><div class="subj-score-line"><span class="score-now" style="color:var(--geo)">55</span><span class="score-arr">→</span><span class="score-target">目标 75</span></div></div>
+      </div>
+      <span class="priority-badge pri-high">🔴 最高优先 每天2h</span>
+      <ul class="tip-list">
+        <li>每章整理关键词+案例（1页）</li>
+        <li>专攻SBQ：Evidence + Explain结构</li>
+        <li>每周至少1套Past Year并批改</li>
+        <li>画图表帮助记忆地形/气候</li>
+        <li>做完立刻对答案，找错误规律</li>
+      </ul>
+    </div>
+    <div class="subj-card">
+      <div class="subj-top">
+        <div class="subj-icon" style="background:var(--hist-light);">📜</div>
+        <div><div class="subj-name">History</div><div class="subj-score-line"><span class="score-now" style="color:var(--hist)">87</span><span class="score-arr">→</span><span class="score-target">保持 87+</span></div></div>
+      </div>
+      <span class="priority-badge" style="background:var(--hist-light);color:var(--hist-dark);">🟣 每天1h 维持高分</span>
+      <ul class="tip-list">
+        <li>每天1h — SBQ答题保持现有结构</li>
+        <li>老师建议：多阅读课外历史资料</li>
+        <li>Past Year每周1套，保持手感</li>
+        <li>论点要有具体史实支撑</li>
+      </ul>
+    </div>
+    <div class="subj-card">
+      <div class="subj-top">
+        <div class="subj-icon" style="background:var(--chi-light);">📖</div>
+        <div><div class="subj-name">Higher Chinese</div><div class="subj-score-line"><span class="score-now" style="color:var(--chi)">69</span><span class="score-arr">→</span><span class="score-target">目标 75</span></div></div>
+      </div>
+      <span class="priority-badge pri-med">🟡 每天1.5h</span>
+      <ul class="tip-list">
+        <li>每天积累10个词语/成语并造句</li>
+        <li>议论文用三段式结构</li>
+        <li>阅读理解：先找主旨句再答题</li>
+        <li>多读联合早报培养语感</li>
+      </ul>
+    </div>
+    <div class="subj-card">
+      <div class="subj-top">
+        <div class="subj-icon" style="background:var(--eng-light);">✍️</div>
+        <div><div class="subj-name">English Lit</div><div class="subj-score-line"><span class="score-now" style="color:var(--eng)">73</span><span class="score-arr">→</span><span class="score-target">目标 75</span></div></div>
+      </div>
+      <span class="priority-badge" style="background:var(--eng-light);color:var(--eng-dark);">🔵 每天1.5h（轮换）</span>
+      <ul class="tip-list">
+        <li>写作练习开头段与结尾段</li>
+        <li>文学分析用PEEL结构</li>
+        <li>积累高级词汇，写作时用</li>
+        <li>差距只有2分，稳定发挥即达标</li>
+      </ul>
+    </div>
+    <div class="subj-card">
+      <div class="subj-top">
+        <div class="subj-icon" style="background:var(--sci-light);">🔬</div>
+        <div><div class="subj-name">Science</div><div class="subj-score-line"><span class="score-now" style="color:var(--sci)">75</span><span class="score-arr">→</span><span class="score-target">保持 75+</span></div></div>
+      </div>
+      <span class="priority-badge pri-low">🟢 每天30min 维持</span>
+      <ul class="tip-list">
+        <li>每天30分钟练习题/概念</li>
+        <li>定期回顾错题本</li>
+        <li>不需要大量刷题</li>
+      </ul>
+    </div>
+    <div class="subj-card">
+      <div class="subj-top">
+        <div class="subj-icon" style="background:var(--math-light);">🔢</div>
+        <div><div class="subj-name">Mathematics</div><div class="subj-score-line"><span class="score-now" style="color:var(--math)">100</span><span class="score-arr">→</span><span class="score-target">满分保持</span></div></div>
+      </div>
+      <span class="priority-badge pri-star">⭐ 每周1–2题维持</span>
+      <ul class="tip-list">
+        <li>假期不需要刻意复习</li>
+        <li>奥数练习本身就是提升</li>
+        <li>享受这个优势科目！</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- OLYMPIAD -->
+<div id="olympiad" class="section">
+  <div class="week-hd"><h2>竞赛详细规划</h2><p>三科每周2次 · 每次3小时 · 共4周</p></div>
+
+  <div class="oly-section-title" style="background:var(--oly-math-light);color:var(--oly-math-dark);">🔢 奥数 — SMO Junior → Open（周一/周四）</div>
+  <div class="subj-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-bottom:20px;">
+    <div class="subj-card oly-card" style="border-left-color:var(--oly-math);">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第一周</div>
+      <ul class="tip-list">
+        <li>SMO Open 入门：题型分析</li>
+        <li>数论基础：整除、同余</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-card" style="border-left-color:var(--oly-math);">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第二周</div>
+      <ul class="tip-list">
+        <li>组合数学：排列计数进阶</li>
+        <li>代数：不等式&函数技巧</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-card" style="border-left-color:var(--oly-math);">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第三周</div>
+      <ul class="tip-list">
+        <li>几何进阶：圆、相似、面积</li>
+        <li>SMO Open 历年真题练习</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-card" style="border-left-color:var(--oly-math);">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第四周</div>
+      <ul class="tip-list">
+        <li>Open 真题冲刺（计时）</li>
+        <li>综合题型总结归纳</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="oly-section-title" style="background:var(--oly-phys-light);color:var(--oly-phys-dark);">⚡ 奥物 — 电学&磁学（周二/周五）</div>
+  <div class="subj-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-bottom:20px;">
+    <div class="subj-card oly-phys-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第一周</div>
+      <ul class="tip-list">
+        <li>电场：库仑定律、场强、电势</li>
+        <li>电势能与电势差、等势面</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-phys-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第二周</div>
+      <ul class="tip-list">
+        <li>电流与电路：基尔霍夫定律</li>
+        <li>磁场入门：安培定律、磁感应</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-phys-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第三周</div>
+      <ul class="tip-list">
+        <li>磁感应强度、安培力、洛伦兹力</li>
+        <li>电磁感应：法拉第定律、楞次定律</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-phys-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">第四周</div>
+      <ul class="tip-list">
+        <li>电磁综合题型练习</li>
+        <li>竞赛真题训练+总结</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="oly-section-title" style="background:var(--oly-chem-light);color:var(--oly-chem-dark);">🧪 奥化 — A Level 全覆盖（周三/周六）</div>
+  <div style="background:var(--oly-chem-light);border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12.5px;color:var(--oly-chem-dark);line-height:1.6;">
+    ⚠️ 目标：6月内覆盖A Level全部知识点（配合老师课程节奏）。每次3小时 × 8次 = 24小时。重点在于建立框架，不求死记，而是理解核心机制。
+  </div>
+  <div class="subj-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W1 周三 — Physical Chem I</div>
+      <ul class="tip-list">
+        <li>原子结构与化学键</li>
+        <li>热力学基础：ΔH、ΔS、ΔG</li>
+        <li>化学平衡与Kc/Kp</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W1 周六 — Inorganic I</div>
+      <ul class="tip-list">
+        <li>第三周期元素性质规律</li>
+        <li>过渡金属：配位化合物</li>
+        <li>酸碱反应与盐的水解</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W2 周三 — Organic I</div>
+      <ul class="tip-list">
+        <li>烃类命名与性质</li>
+        <li>取代/加成/消去反应机理</li>
+        <li>卤代烃与醇的转化</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W2 周六 — Organic II</div>
+      <ul class="tip-list">
+        <li>醛酮、羧酸及衍生物</li>
+        <li>胺与氨基酸</li>
+        <li>有机合成路线分析</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W3 周三 — Physical Chem II</div>
+      <ul class="tip-list">
+        <li>电化学：电池与电解</li>
+        <li>反应速率与催化</li>
+        <li>酸碱平衡：pH、缓冲溶液</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W3 周六 — Organic III</div>
+      <ul class="tip-list">
+        <li>芳香化合物：苯的反应</li>
+        <li>立体化学：顺反/光学异构</li>
+        <li>综合有机路线题</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W4 周三 — A Level最终章</div>
+      <ul class="tip-list">
+        <li>跟老师确认剩余知识点</li>
+        <li>高难度综合题练习</li>
+        <li>A Level历年真题</li>
+      </ul>
+    </div>
+    <div class="subj-card oly-chem-card">
+      <div class="subj-name" style="font-size:13px;margin-bottom:8px;">W4 周六 — 全册总回顾</div>
+      <ul class="tip-list">
+        <li>整理A Level知识框架图</li>
+        <li>易错点汇总</li>
+        <li>为下学期竞赛打基础</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div id="checklist" class="section">
+  <div class="week-hd"><h2>假期打卡清单</h2><p>点击任务标记完成 · 进度自动保存</p></div>
+  <div id="cl-container"></div>
+</div>
+
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('visible');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const checklistData = [
+  { week:'第一周（1–7日）建立节奏', tasks:[
+    {id:'w1_1',color:'var(--geo)',text:'地理 Ch1–2 概念整理'},
+    {id:'w1_2',color:'var(--geo)',text:'地理 1套Past Year SBQ'},
+    {id:'w1_3',color:'var(--hist)',text:'历史 基础笔记整理'},
+    {id:'w1_4',color:'var(--hist)',text:'历史 SBQ结构训练'},
+    {id:'w1_5',color:'var(--chi)',text:'华文 每天词汇积累（7天）'},
+    {id:'w1_6',color:'var(--chi)',text:'华文 作文练习1篇'},
+    {id:'w1_7',color:'var(--eng)',text:'英文 阅读+词汇'},
+    {id:'w1_8',color:'var(--oly-math)',text:'奥数 SMO Open入门+数论'},
+    {id:'w1_9',color:'var(--oly-phys)',text:'奥物 电场基础+电势'},
+    {id:'w1_10',color:'var(--oly-chem)',text:'奥化 Physical Chem I'},
+    {id:'w1_11',color:'var(--oly-chem)',text:'奥化 Inorganic Chem I'},
+  ]},
+  { week:'第二周（8–14日）深化攻坚', tasks:[
+    {id:'w2_1',color:'var(--geo)',text:'地理 Essay结构训练'},
+    {id:'w2_2',color:'var(--geo)',text:'地理 Mock SBQ全套+批改'},
+    {id:'w2_3',color:'var(--geo)',text:'地理 Past Year Paper'},
+    {id:'w2_4',color:'var(--hist)',text:'历史 SBQ全套练习'},
+    {id:'w2_5',color:'var(--hist)',text:'历史 Past Year 1套'},
+    {id:'w2_6',color:'var(--chi)',text:'华文 议论文写作'},
+    {id:'w2_7',color:'var(--eng)',text:'英文 Essay完整版'},
+    {id:'w2_8',color:'var(--oly-math)',text:'奥数 组合+代数进阶'},
+    {id:'w2_9',color:'var(--oly-phys)',text:'奥物 电流电路+磁场'},
+    {id:'w2_10',color:'var(--oly-chem)',text:'奥化 Organic Chem I+II'},
+  ]},
+  { week:'第三周（15–21日）全面模拟', tasks:[
+    {id:'w3_1',color:'var(--geo)',text:'地理 Full Mock（计时）'},
+    {id:'w3_2',color:'var(--geo)',text:'地理 深度分析改卷'},
+    {id:'w3_3',color:'var(--hist)',text:'历史 Full Mock（计时）'},
+    {id:'w3_4',color:'var(--hist)',text:'历史 改卷+总结'},
+    {id:'w3_5',color:'var(--chi)',text:'华文 Full Mock（计时）'},
+    {id:'w3_6',color:'var(--eng)',text:'英文 Full Mock（计时）'},
+    {id:'w3_7',color:'var(--sci)',text:'科学 Full Mock（计时）'},
+    {id:'w3_8',color:'var(--oly-math)',text:'奥数 几何+SMO真题'},
+    {id:'w3_9',color:'var(--oly-phys)',text:'奥物 磁场+电磁感应'},
+    {id:'w3_10',color:'var(--oly-chem)',text:'奥化 Physical Chem II+Organic III'},
+  ]},
+  { week:'第四周（22–30日）冲刺收尾', tasks:[
+    {id:'w4_1',color:'var(--geo)',text:'地理 弱点最终专攻'},
+    {id:'w4_2',color:'var(--geo)',text:'地理 精华笔记整理'},
+    {id:'w4_3',color:'var(--hist)',text:'历史 精华笔记整理'},
+    {id:'w4_4',color:'var(--chi)',text:'华文 最终模拟'},
+    {id:'w4_5',color:'var(--geo)',text:'地理 最终模拟+改卷'},
+    {id:'w4_6',color:'var(--oly-math)',text:'奥数 Open真题冲刺'},
+    {id:'w4_7',color:'var(--oly-phys)',text:'奥物 电磁综合总结'},
+    {id:'w4_8',color:'var(--oly-chem)',text:'奥化 A Level最终章节'},
+    {id:'w4_9',color:'var(--oly-chem)',text:'奥化 全册知识框架图'},
+    {id:'w4_10',color:'#888',text:'全科精华笔记整理完毕'},
+  ]}
+];
+
+let completed = {};
+try { completed = JSON.parse(localStorage.getItem('xiaoyu_v2') || '{}'); } catch(e){}
+
+function saveState() { try { localStorage.setItem('xiaoyu_v2', JSON.stringify(completed)); } catch(e){} }
+function toggleTask(id) { completed[id]=!completed[id]; saveState(); renderChecklist(); }
+
+function renderChecklist() {
+  const container = document.getElementById('cl-container');
+  const total = checklistData.reduce((s,w)=>s+w.tasks.length,0);
+  const done = Object.values(completed).filter(Boolean).length;
+  let html = `<div style="background:#fff;border-radius:var(--radius);border:1px solid var(--border);padding:15px 18px;margin-bottom:20px;display:flex;align-items:center;gap:14px;">
+    <div style="flex:1;"><div style="font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:7px;">假期总进度</div>
+    <div style="height:10px;background:#EEE;border-radius:100px;overflow:hidden;"><div style="height:100%;width:${Math.round(done/total*100)}%;background:#6BCB77;border-radius:100px;transition:width 0.4s;"></div></div></div>
+    <div style="font-family:'Nunito',sans-serif;font-size:30px;font-weight:900;color:#2E7D32;">${Math.round(done/total*100)}%</div>
+    <div style="font-size:12px;color:var(--muted);font-family:'Nunito',sans-serif;font-weight:600;">${done}/${total}</div></div>`;
+  checklistData.forEach(week=>{
+    const wd = week.tasks.filter(t=>completed[t.id]).length;
+    html+=`<div class="checklist-week"><div class="cl-week-title"><span class="cl-week-num">${wd}/${week.tasks.length}</span>${week.week}</div><div class="cl-grid">`;
+    week.tasks.forEach(task=>{
+      const isDone=completed[task.id];
+      html+=`<div class="cl-item${isDone?' done':''}" onclick="toggleTask('${task.id}')">
+        <div class="cl-check">${isDone?'✓':''}</div>
+        <div class="cl-subj-dot" style="background:${task.color}"></div>
+        <div class="cl-text">${task.text}</div></div>`;
+    });
+    html+=`</div></div>`;
+  });
+  container.innerHTML = html;
+}
+renderChecklist();
+</script>
+</body>
+</html>
